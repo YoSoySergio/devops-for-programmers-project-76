@@ -1,0 +1,21 @@
+- hosts: all
+  gather_facts: no
+
+  tasks:
+    - name: copy docker-compose file
+      ansible.builtin.template:
+        src: ./docker/docker-compose.yml
+        dest: "{{ dest_files }}/docker-compose.yml"
+    - name: copy caddy config
+      ansible.builtin.template:
+        src: ./services/caddy/Caddyfile
+        dest: "{{ dest_files }}/Caddyfile"
+    - name: Create and start services
+      community.docker.docker_compose:
+        # link the docker compose file in the docker folder
+        project_src: "{{ dest_files }}"
+      register: output
+
+    - name: Show results
+      ansible.builtin.debug:
+        var: output

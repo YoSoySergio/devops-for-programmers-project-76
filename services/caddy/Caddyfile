@@ -1,0 +1,10 @@
+sergiu.info {
+  log {
+    format json
+  }
+
+  # Компрессия
+  encode zstd
+
+  reverse_proxy /* redmine:3000
+}

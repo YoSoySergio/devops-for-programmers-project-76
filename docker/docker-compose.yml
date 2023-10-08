@@ -1,0 +1,38 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:alpine3.18
+    restart: always
+
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: "{{ vars.DATABASE_NAME }}"
+      POSTGRES_USER: "{{ vars.DATABASE_USERNAME }}"
+      POSTGRES_PASSWORD: "{{ vars.DATABASE_PASSWORD }}"
+
+  redmine:
+    image: redmine:alpine3.18
+    restart: always
+    environment:
+      REDMINE_DB_POSTGRES: "{{ vars.DATABASE_HOST }}"
+      REDMINE_DB_DATABASE: "{{ vars.DATABASE_NAME }}"
+      REDMINE_DB_USERNAME: "{{ vars.DATABASE_USERNAME }}"
+      REDMINE_DB_PASSWORD: "{{ vars.DATABASE_PASSWORD }}"
+    depends_on:
+      - db
+
+  caddy:
+    image: caddy:2.7.4-alpine
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - "{{ dest_files }}/Caddyfile:/etc/caddy/Caddyfile"
+    depends_on:
+      - redmine
+
+volumes:
+  db-data:
