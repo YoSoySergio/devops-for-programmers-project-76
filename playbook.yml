@@ -19,3 +19,4 @@
         # link the docker compose file in the docker folder
         project_src: "/home"
         remove_orphans: true
+        debug: true
