@@ -8,15 +8,3 @@
         project_src: "{{ dest_files }}"
         build: false
         stopped: true
-      register: output
-
-    - name: Show results
-      ansible.builtin.debug:
-        var: output
-
-  # handlers:
-  #   - name: restart nginx
-  #     ansible.builtin.service:
-  #       name: nginx
-  #       state: reloaded
-  #     become: yes

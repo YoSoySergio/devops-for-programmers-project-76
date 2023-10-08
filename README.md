@@ -14,6 +14,7 @@
 
 1. `make setup`
 2. `make start`
+3. optional monitoring: `make monitor`
 
 ### Docker Image
 

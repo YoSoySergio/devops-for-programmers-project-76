@@ -3,3 +3,5 @@ roles:
     version: "2.2.0"
   - name: community.docker
     version: "latest"
+  - name: datadog.dd
+    version: "latest"
