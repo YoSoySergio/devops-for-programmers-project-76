@@ -1,11 +1,8 @@
-setup:
-	ansible-playbook --vault-password-file vault_key setup.yml
-
 monitor:
 	ansible-playbook --vault-password-file vault_key monitor.yml
 
 start:
-	ansible-playbook --vault-password-file vault_key start.yml
+	ansible-playbook --vault-password-file vault_key playbook.yml
 stop:
 	ansible-playbook --vault-password-file vault_key stop.yml
 

@@ -12,15 +12,12 @@ services:
       REDMINE_DB_PASSWORD: "{{ vars.DATABASE_PASSWORD }}"
 
   caddy:
-    image: caddy:2.7.4-alpine
+    image: caddy:alpine
     restart: unless-stopped
     ports:
       - "80:80"
       - "443:443"
     volumes:
-      - "{{ dest_files }}/Caddyfile:/etc/caddy/Caddyfile"
+      - "/home/Caddyfile:/etc/caddy/Caddyfile"
     depends_on:
       - redmine
-
-volumes:
-  db-data:
