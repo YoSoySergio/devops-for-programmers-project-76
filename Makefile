@@ -1,13 +1,13 @@
 monitor:
-	ansible-playbook --vault-password-file vault_key monitor.yml
+	ansible-playbook monitor.yml
 
 start:
-	ansible-playbook --vault-password-file vault_key playbook.yml
+	ansible-playbook playbook.yml
 stop:
-	ansible-playbook --vault-password-file vault_key stop.yml
+	ansible-playbook stop.yml
 
 check-docker:
-	ansible-playbook --check --vault-password-file vault_key start.yml
+	ansible-playbook --check playbook.yml
 
 edit-env:
-	ansible-vault edit --vault-password-file vault_key group_vars/webservers/db.yml
+	ansible-vault edit group_vars/webservers/vault.yml

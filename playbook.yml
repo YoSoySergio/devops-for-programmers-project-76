@@ -8,15 +8,14 @@
   tasks:
     - name: Copy docker-compose file
       ansible.builtin.template:
-        src: ./docker/docker-compose.yml
+        src: docker-compose.yml
         dest: "/home/docker-compose.yml"
     - name: Copy caddy config
       ansible.builtin.template:
-        src: ./services/caddy/Caddyfile
+        src: Caddyfile.j2
         dest: "/home/Caddyfile"
     - name: Create and start services
       community.docker.docker_compose:
         # link the docker compose file in the docker folder
         project_src: "/home"
         remove_orphans: true
-        debug: true

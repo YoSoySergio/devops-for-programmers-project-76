@@ -5,6 +5,6 @@
     - name: Stop services
       community.docker.docker_compose:
         # link the docker compose file in the docker folder
-        project_src: "{{ dest_files }}"
+        project_src: "/home"
         build: false
         stopped: true
