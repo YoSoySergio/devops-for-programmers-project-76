@@ -12,9 +12,10 @@
 
 ### Run Development
 
-1. `make start`
-2. optional monitoring: `make monitor`
+1. Create a `vault_key` file in the root containing the vault password
+2. Run `make start`
+3. optional monitoring: Run `make monitor`
 
-### Docker Image
+### Production URL
 
 1. [sergiu.info](https://sergiu.info)
