@@ -1,10 +1,10 @@
-- hosts: all
+- hosts: webservers
   gather_facts: no
 
   tasks:
     - name: Stop services
       community.docker.docker_compose:
         # link the docker compose file in the docker folder
-        project_src: "/home"
+        project_src: "{{dest_files}}"
         build: false
         stopped: true

@@ -3,6 +3,7 @@ monitor:
 
 start:
 	ansible-playbook playbook.yml
+
 stop:
 	ansible-playbook stop.yml
 

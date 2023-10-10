@@ -1,5 +1,5 @@
 - hosts: all
-  gather_facts: yes
+  gather_facts: no
   become: true
 
   roles:
@@ -9,9 +9,9 @@
     - name: Copy docker-compose file
       ansible.builtin.template:
         src: docker-compose.yml
-        dest: "/home/docker-compose.yml"
+        dest: "{{dest_files}}/docker-compose.yml"
     - name: Create and start services
       community.docker.docker_compose:
         # link the docker compose file in the docker folder
-        project_src: "/home"
+        project_src: "{{dest_files}}"
         remove_orphans: true

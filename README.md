@@ -12,9 +12,8 @@
 
 ### Run Development
 
-1. `make setup`
-2. `make start`
-3. optional monitoring: `make monitor`
+1. `make start`
+2. optional monitoring: `make monitor`
 
 ### Docker Image
 
