@@ -5,10 +5,11 @@ services:
     image: redmine:alpine3.18
     restart: unless-stopped
     environment:
-      REDMINE_DB_POSTGRES: "{{ DATABASE_HOST }}"
-      REDMINE_DB_PORT: "{{ DATABASE_PORT }}"
-      REDMINE_DB_DATABASE: "{{ DATABASE_NAME }}"
-      REDMINE_DB_USERNAME: "{{ DATABASE_USERNAME }}"
-      REDMINE_DB_PASSWORD: "{{ DATABASE_PASSWORD }}"
+      REDMINE_DB_POSTGRES: "{{ database_host }}"
+      REDMINE_DB_PORT: "{{ database_port }}"
+      REDMINE_DB_DATABASE: "{{ database_name }}"
+      REDMINE_DB_USERNAME: "{{ database_username }}"
+      REDMINE_DB_PASSWORD: "{{ database_password }}"
+
     ports:
       - 80:3000

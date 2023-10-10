@@ -1,2 +1,2 @@
-datadog_api_key: "{{ VAULT_DATADOG_KEY }}"
+datadog_api_key: "{{ vault_datadog_key }}"
 datadog_site: datadoghq.eu
