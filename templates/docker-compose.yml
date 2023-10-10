@@ -10,14 +10,5 @@ services:
       REDMINE_DB_DATABASE: "{{ DATABASE_NAME }}"
       REDMINE_DB_USERNAME: "{{ DATABASE_USERNAME }}"
       REDMINE_DB_PASSWORD: "{{ DATABASE_PASSWORD }}"
-
-  caddy:
-    image: caddy:alpine
-    restart: unless-stopped
     ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - "/home/Caddyfile:/etc/caddy/Caddyfile"
-    depends_on:
-      - redmine
+      - 80:3000
