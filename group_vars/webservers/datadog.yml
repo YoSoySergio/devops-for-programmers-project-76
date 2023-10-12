@@ -1,2 +1,8 @@
 datadog_api_key: "{{ vault_datadog_key }}"
 datadog_site: datadoghq.eu
+datadog_checks:
+  process:
+    init_config:
+      instances:
+        - name: Check availability
+          url: "https://{{ app_url }}"
